@@ -5,6 +5,7 @@ These are notes for the second JavaScript workshop at NICAR2016 in Denver. This 
 The workshop is in two parts: a short presentation on HTML and the DOM and a longer hands-on session on DOM manipulation.
 
 - [Slides for presentation on the DOM](http://scottpham.xyz/JS2WorkshopNICAR2016/slides/#/)
+- [Example page for hands-on](http://scottpham.xyz/JS2WorkshopNICAR2016/example/)
 
 For the workshop, we use an example webpage I've built and we write our code in a separate .js file to establish best practices. To follow along, download this whole repo, open the `example` folder and double-click `index.html` to open the webpage in your browser. The .js file is located in `example/js/script.js`.
 
