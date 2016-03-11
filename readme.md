@@ -2,7 +2,7 @@
 
 These are notes for the second JavaScript workshop at NICAR2016 in Denver. This workshop was intended to follow intro to JavaScript and is best for very beginning programmers. However, you'll get the most of out of this if you have some familiarity with HTML and CSS.
 
-The workshop is in two parts: a short presentation on HTML and the DOM and a longer hands-on session on DOM manipulation.
+The workshop is in two parts: a short presentation on the DOM and a longer hands-on session on DOM manipulation.
 
 - [Slides for presentation on the DOM](http://scottpham.xyz/JS2WorkshopNICAR2016/slides/#/)
 - [Example page for hands-on](http://scottpham.xyz/JS2WorkshopNICAR2016/example/)
@@ -14,14 +14,14 @@ Alternatively, these examples work just as well when you enter the code directly
 # Javascript and the DOM
 
 ## What is the DOM?
-When we refer to the DOM - or Document Object Model - we mostly just mean HTML. Is it more complicated than that? Well, yes it is. But It is fine if yo just think "HTML" when you hear "DOM." Just know that we refer to the DOM when we talk about the ways in which programs (in this case, JavaScript) interacts with HTML.
+When we refer to the DOM - or Document Object Model - we mostly just mean HTML. Is it more complicated than that? Well, yes it is. But it is fine if you just think "HTML" when you hear "DOM." Just know that we refer to the DOM when we talk about the ways in which programs (in this case, JavaScript) interacts with HTML.
 
 ## The rest of the story
 When you write HTML the browser reads your `<p>` tags and your `<table>`s and it knows how to make that into a webpage.
 
-How exactly does it do that? I'm not really sure. That's not the important thing for our purposes today. The important thing is that when it creates a web page, the browser doesn't *just* turn tags into elements, but it stores those elements in a Javascript **object** called `document`.
+How exactly does it do that? I'm not really sure! That's not the important thing for our purposes today. The important thing is that when it creates a web page, the browser doesn't *just* turn tags into elements, but it stores those elements in a Javascript *object* called `document`.
 
-When I say object, I mean an object of the JavaScript kind, the kind which usually looks like this:
+When I say object, I mean an [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) of the JavaScript kind, the kind which usually looks like this:
 ```
 {
 	'key': 'value',
@@ -48,27 +48,27 @@ var myObject = {
 When you call myObject.functionKey(), "hello" will be printed to the console. In this way, the browser provides useful functions attached to the `document` object. These functions are quite a bit more complicated than a simple console.log and can do things like return specific HTML elements, change them, and remove them. This, in a nutshell, is what we mean by "DOM manipulation".
 
 ## What does this do for you?
-For data journalists, here are some cool things we do with DOM manipulation:
+Here are just two things you can do with this:
 - Provide interactivity to webpages. When a popup appears as you hover over a chart, that's DOM manipulation. When a photo changes as you click through a gallery, that's DOM manipulation. When you submit data through a form, JavaScript can help you read that data in the inputs and send that data to a server.
 - Create data visualizations. You've heard of D3.js? Fancy DOM manipulation.
 
 
 ## So how do we do this DOM manipulation thing?
-- Remember when I said the browser *provides* special JavaScript functions to manipulate the DOM? I'm not going to teach you those. Today we're using jQuery, which is a JavaScript library that we download from the jQuery website and load into our webpage via a `<script>` tag. I've already done that for you in the example webpage.
+- Today we're going to use jQuery, which is a JavaScript library that is used mostly for DOM manipulation. We load jQuery into our webpage via a `<script>` tag. I've already done that for you in the example webpage.
 
-You be wondering: why do we need a library if the browser already gives you all these handy functions for DOM manipulation? Here's why we use jQuery instead:
+You might be wondering: why do we need a library if the browser already gives you all these handy functions for DOM manipulation? Here's why we use jQuery instead:
   1. The jQuery syntax is simpler and shorter than the native browser functions.
-  2. As browsers change over the years, the DOM manipulations change too. If your user has a very old browser and you use the newest methods, your code might break on those browsers. jQuery makes sure your code works on all the different browsers going back several years.
-  3. jQuery is ubiquitous. Learning it helps make you a better programmer and helps you read others' code better.
+  2. As browsers change over the years, the DOM manipulations change too. If your user has a very old browser and you use the newest methods, your code might break on those browsers. jQuery makes sure your code works on all the different browsers going back for a few years.
+  3. jQuery is ubiquitous. Learning it helps make you read other people's code and become a better programmer.
 
 ## A caveat
-There are good reasons not to use jQuery in every single app. Often times it's fine to use the native DOM functions especially as older browsers fall out of favor. But the benefits usually outweigh the cons and you can worry about this nitpicking later when you're more jQuery fluent.
+There are good reasons not to use jQuery in every single app. Often times it's fine to use the native DOM functions, especially as older browsers fall out of favor. But the benefits usually outweigh the cons and you can worry about this nitpicking later when you're more jQuery fluent.
 
 ## Our webpage
-Take a moment to look at the code in our example webpage. We have two paragraphs, two buttons a ordered list. Notice that the first graf has an id of `first`. We'll use id to first **select** our element, and then **manipulate** it. That's our general pattern when we write jQuery: select, then manipulated. Select, then manipulate. You'll get used to it.
+Take a moment to look at the code in our example webpage. We have two paragraphs, two buttons a ordered list. Notice that the first graf has an id of `first`. We'll use that id to first **select** our element, and then **manipulate** it. That's our general pattern when we write jQuery: select, then manipulated. Select, then manipulate. You'll get used to it.
 
 Open `/example/js/index.html` by double clicking the file in your finder. It should open up in your default web browser.
-Then, write the below code in `/example/js/script.js`.
+Then, write the below code in `/example/js/script.js` inside of the function that I've already written there. The comments will indicate exactly where.
 ```
 jQuery('#first').hide();
 ```
